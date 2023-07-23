@@ -1,0 +1,53 @@
+{
+  "name": "asb-ls",
+  "displayName": "Gero Assembly",
+  "description": "Gero assembly syntax support for Visual Studio Code",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "publisher": "salty-max",
+  "author": {
+    "name": "Maxime Blanc"
+  },
+  "maintainers": [
+    "Maxime Blanc"
+  ],
+  "categories": [
+    "Programming Languages"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/salty-max/asb-language-support.git"
+  },
+  "scripts": {
+    "package": "vsce package -o ./bin/asb-ls.vsix",
+    "vsce-publish": "vsce publish"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "asb",
+        "aliases": [
+          "asb",
+          "ASB",
+          "Asb"
+        ],
+        "extensions": [
+          ".asb"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "asb",
+        "scopeName": "source.assembly",
+        "path": "./syntaxes/assembly.tmLanguage.json"
+      }
+    ]
+  },
+  "devDependencies": {
+    "vsce": "^2.15.0"
+  }
+}
