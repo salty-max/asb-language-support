@@ -3,7 +3,7 @@
   "displayName": "Gero Assembly",
   "description": "Gero assembly syntax support for Visual Studio Code",
   "version": "0.1.0",
-  "icon": "icon.jpg",
+  "icon": "images/icon.jpg",
   "engines": {
     "vscode": "^1.80.0"
   },
