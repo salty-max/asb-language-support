@@ -99,6 +99,12 @@
     },
     {
       "include": "#memaddress"
+    },
+    {
+      "include": "#structs"
+    },
+    {
+      "include": "#comments"
     }
   ],
   "repository": {
@@ -142,6 +148,9 @@
             },
             {
               "include": "#grouped_expression"
+            },
+            {
+              "include": "#interpretAs"
             }
           ]
         }
@@ -217,6 +226,67 @@
               ]
             }
           }
+        }
+      ]
+    },
+    "structs": {
+      "patterns": [
+        {
+          "name": "meta.struct.assembly",
+          "begin": "\\b(struct)\\s+([a-zA-Z_][0-9a-zA-Z_]*)\\s*\\{",
+          "end": "\\}",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.declaration.assembly"
+            },
+            "2": {
+              "name": "entity.name.struct.assembly"
+            }
+          },
+          "patterns": [
+            {
+              "match": "\\s*([a-zA-Z_][0-9a-zA-Z_]*)\\s*:\\s*(\\$[0-9A-Fa-f]{2})\\s*,?",
+              "captures": {
+                "1": {
+                  "name": "variable.struct.field.assembly"
+                },
+                "2": {
+                  "patterns": [
+                    {
+                      "include": "#literals"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "interpretAs": {
+      "patterns": [
+        {
+          "name": "entity.struct.access.assembly",
+          "match": "<([a-zA-Z_][0-9a-zA-Z_]*)>\\s([a-zA-Z_][0-9a-zA-Z_]*)\\.([a-zA-Z_][0-9a-zA-Z_]*)",
+          "captures": {
+            "1": {
+              "name": "entity.name.struct.assembly"
+            },
+            "2": {
+              "name": "variable.other.property.assembly"
+            },
+            "3": {
+              "name": "variable.other.property.assembly"
+            }
+          }
+        }
+      ]
+    },
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.assembly",
+          "match": ";;.*"
         }
       ]
     }
