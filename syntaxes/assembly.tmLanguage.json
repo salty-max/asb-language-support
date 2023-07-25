@@ -71,7 +71,11 @@
     },
     {
       "name": "support.function.mnemonic.arithmetic.assembly",
-      "match": "\\b(add|sub|mul|inc|dec|lsh|rsh|and|or|xor|not)\\b"
+      "match": "\\b(add|sub|mul|inc|dec|lsh|rsh|and|or|xor|not|neg)\\b"
+    },
+    {
+      "name": "support.function.mnemonic.instruction.assembly",
+      "match": "\\b(int|rti|brk|hlt)\\b"
     },
     {
       "match": "^(\\b[a-zA-Z_][0-9a-zA-Z_]*\\b):",
